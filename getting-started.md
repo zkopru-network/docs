@@ -91,8 +91,8 @@ Select an account to use then it will print the account's detail information on 
 
 In this example, the account has 100 ETH on the layer-1, and we will move this to the layer-2 using deposit menu.
 
-1. Click "Deposit".
-2. Click "Ether\(balance: 100ETH\)".
+1. Select "Deposit".
+2. Select "Ether\(balance: 100ETH\)".
 3. Type the amount of ETH.
 4. Type the fee for the coordinator.
 5. Confirm the deposit transaction.
