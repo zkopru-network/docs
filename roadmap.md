@@ -2,7 +2,7 @@
 
 [List of rolled foods](https://en.wikipedia.org/wiki/List_of_rolled_foods)
 
-## [Arctic roll (testnet)](https://github.com/wanseob/zkopru/projects/1)
+## [Arctic roll \(testnet\)](https://github.com/wanseob/zkopru/projects/1)
 
 The first working testnet of zkopru.
 
@@ -15,9 +15,9 @@ The first working testnet of zkopru.
   * Private transfer
   * Withdrawal
 
-## [Burrito (testnet)](https://github.com/wanseob/zkopru/projects/2)
+## [Burrito \(testnet\)](https://github.com/wanseob/zkopru/projects/2)
 
-Support challenges and 
+Support challenges and
 
 * Semantic version: `^2.0.0`
 * Features
@@ -29,10 +29,11 @@ Support challenges and
   * Challenge support
   * Coordinator dashboard
 
-## [California roll (mainnet)](https://github.com/wanseob/zkopru/projects/4)
+## [California roll \(mainnet\)](https://github.com/wanseob/zkopru/projects/4)
 
 * Semantic version: `^3.0.0`
 * Features
   * Light node
   * Mobile wallet support
   * Coordinator dashboard
+
