@@ -1,16 +1,16 @@
 # Getting started
 
-## Install cli wallet
+## Install wallet for zkopru
 
 The zkopru wallet includes a full node\(light node is in progress\), and manages user's own UTXOs and the proof data. To use zkopru, you need to install the zkopru wallet first. Currently, it only supports the CLI version but it is expected to have a mobile version in the near future.
 
-### Get `@zkopru/cli`
+### Install `@zkopru/cli`
 
 ```text
 $ npm install -g @zkopru/cli
 ```
 
-Please install \`@zkopru/cli\` globally using npm. This will install `zkopru-wallet` and `zkopru-coordinator`. We'll use `zkopru-wallet` binary for this tutorial.
+This will install `zkopru-wallet` and `zkopru-coordinator`. We'll use `zkopru-wallet` binary for this tutorial.
 
 ### Run `zkopru-wallet`
 
@@ -91,8 +91,8 @@ Select an account to use then it will print the account's detail information on 
 
 In this example, the account has 100 ETH on the layer-1, and we will move this to the layer-2 using deposit menu.
 
-1. Select "Deposit".
-2. Select "Ether\(balance: 100ETH\)".
+1. Click "Deposit".
+2. Click "Ether\(balance: 100ETH\)".
 3. Type the amount of ETH.
 4. Type the fee for the coordinator.
 5. Confirm the deposit transaction.
