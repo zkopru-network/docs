@@ -8,31 +8,25 @@ Also, if the zk-transaction create withdrawal outputs, Zkopru appends them into 
 
 Afterwards, by the commitment-nullifier scheme, the nullifier of the spent UTXOs are marked as used in the nullifier tree, a unique sparse Merkle tree. If a transaction tries to use an already nullifiered leaf, it becomes invalidated and the block proposer gets slashed by the challenge system.
 
-
 ![grove](https://docs.google.com/drawings/d/e/2PACX-1vTXH2aQr0HZmWZbbA2ENOISW5hT5XsG2dda90RBSaQH-2ClqlZvFKlSTppR38b2ixUbqQeMOTztC-LA/pub?w=1031&h=564)
 
 ## Specification of Merkle trees
 
-|       | UTXO Tree | Nullifier Tree | Withdrawal Tree |
-| ----- | --------- | -------------- | --------- |
+|  | UTXO Tree | Nullifier Tree | Withdrawal Tree |
+| :--- | :--- | :--- | :--- |
 | Type | Sparse Merkle Tree | Sparse Merkle Tree | Sparse Merkle Tree |
-| Depth | 31        | 256            | 31        |
-| Hash  | Poseidon  | Keccak256      | Keccak256 |
-| How to update | append only with sub-tree rollup with 5 depth tree | SMT roll-up | append only with sub-tree rollup with 5 depth tree
-| Cost (gas/leaf) | 180k | 351k | 5.2k |
+| Depth | 31 | 256 | 31 |
+| Hash | Poseidon | Keccak256 | Keccak256 |
+| How to update | append only with sub-tree rollup with 5 depth tree | SMT roll-up | append only with sub-tree rollup with 5 depth tree |
+| Cost \(gas/leaf\) | 180k | 351k | 5.2k |
 
 ## How to manage the UTXO Trees
 
 A single UTXO tree is a sparse merkle tree for the membership proof. It uses Poseidon hash, one of the cheapest hash function inside the SNARK, to generate a zk SNARK proof to hide the spending hash and its path.
 
-To append new leaves to the UTXO tree, the coordinator performs the following steps.
-1. Prepare an array.
-2. Coordinator picks MassDeposits to include, and append every deposit in the MassDeposits into the array.
-3. L2 transactions generates new UTXOs. Append newly generated UTXOs to the array.
-4.  Split the prepared array with the chunk size 32.
-5.  Construct sub trees and perform the sub-tree rollup.
+To append new leaves to the UTXO tree, the coordinator performs the following steps. 1. Prepare an array. 2. Coordinator picks MassDeposits to include, and append every deposit in the MassDeposits into the array. 3. L2 transactions generates new UTXOs. Append newly generated UTXOs to the array. 4. Split the prepared array with the chunk size 32. 5. Construct sub trees and perform the sub-tree rollup.
 
-If the UTXO tree is fully filled with (2^31) items, the system archive the fully filled tree and start a new tree. The archived trees are also allowed to be used for the reference for the inclusion proofs of the transactions.
+If the UTXO tree is fully filled with \(2^31\) items, the system archive the fully filled tree and start a new tree. The archived trees are also allowed to be used for the reference for the inclusion proofs of the transactions.
 
 The root is updated by the optimistic way and is verified when only there exist a challenge. And for the challenge, it generates an on-chain fraud-proof using the sub-tree rollup methodology. Sub-tree rollup appends fixed size of sub trees instead of appending items 1 by 1. When if the sub-tree's depth is 5, it'll append 32 items at once. If it contains only 18 items, the remaining 14 items will be remained forever as zeroes. This sub-tree rollup dramatically reduces the gas cost about 20 times compared to the roll up. To check the source code, please go to [contracts/controllers/Challengeable1.sol](https://github.com/wilsonbeam/zk-optimistic-rollup/blob/develop/contracts/controllers/Challengeable1.sol). And to see how the sub-tree works please go to [merkle-tree-rollup/contracts/library/SubTreeRollUpLib.sol](https://github.com/wilsonbeam/merkle-tree-rollup/blob/master/contracts/library/SubTreeRollUpLib.sol)
 
@@ -44,7 +38,7 @@ Every transfer, withdrawal, and migration transacion spends UTXOs with the inclu
 
 To update the nullifier tree, the cooridnator performs the following steps.
 
-1. Pick transactions (transfer, withdrawal, migratoin) and collect all nullifiers from the transactions.
+1. Pick transactions \(transfer, withdrawal, migratoin\) and collect all nullifiers from the transactions.
 2. Check if any of the nullifier is already used.
 3. Mark every nullifiers as used. And during the update process, if any of the nullifier does not make any change of the nullifier tree root, discard the transaction because it tries a double-spending.
 

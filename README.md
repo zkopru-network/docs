@@ -6,7 +6,5 @@ Zkopru is a layer-2 scaling solution for private transactions using zk-SNARK and
 
 ![](.gitbook/assets/zkopru-banner-2-.png)
 
-{% page-ref page="./" %}
-
 
 
