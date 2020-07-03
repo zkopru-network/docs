@@ -1,16 +1,16 @@
 # Getting started
 
-## Install wallet for zkopru
+## Install cli wallet
 
 The zkopru wallet includes a full node\(light node is in progress\), and manages user's own UTXOs and the proof data. To use zkopru, you need to install the zkopru wallet first. Currently, it only supports the CLI version but it is expected to have a mobile version in the near future.
 
-### Install `@zkopru/cli`
+### Get `@zkopru/cli`
 
 ```text
 $ npm install -g @zkopru/cli
 ```
 
-This will install `zkopru-wallet` and `zkopru-coordinator`. We'll use `zkopru-wallet` binary for this tutorial.
+Please install \`@zkopru/cli\` globally using npm. This will install `zkopru-wallet` and `zkopru-coordinator`. We'll use `zkopru-wallet` binary for this tutorial.
 
 ### Run `zkopru-wallet`
 
