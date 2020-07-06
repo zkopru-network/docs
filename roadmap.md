@@ -15,16 +15,16 @@ The first working testnet of zkopru.
   * Private transfer
   * Withdrawal
 
-## [Burrito \(testnet\)](https://github.com/wanseob/zkopru/projects/2)
+## [Burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/2)
 
 Support challenges
 
 * Semantic version: `^2.0.0`
 * Features
   * Challenge support
-  * Soft launch on mainnet
+  * Soft-launching on mainnet(at your own risk)
 
-## [Grilled burrito \(soft-launch on mainnet\)](https://github.com/wanseob/zkopru/projects/5)
+## [Grilled burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/5)
 
 Upgrade layer 2 features from Buritto
 
@@ -41,6 +41,7 @@ Upgrade layer 2 features from Buritto
 * Semantic version: `^3.0.0`
 * Features
   * Audit
+  * Trusted setup
   * Light node
   * Mobile wallet support
   * Coordinator dashboard
