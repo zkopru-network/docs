@@ -24,7 +24,7 @@ Support challenges
   * Challenge support
   * Soft-launching on mainnet(at your own risk)
 
-## [Grilled burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/5)
+## [Grilled burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/4)
 
 Upgrade layer 2 features from Buritto
 
@@ -36,7 +36,7 @@ Upgrade layer 2 features from Buritto
   * Instant withdrawal
   * Simulator & benchmark
 
-## [California roll \(mainnet\)](https://github.com/wanseob/zkopru/projects/4)
+## [California roll \(mainnet\)](https://github.com/wanseob/zkopru/projects/5)
 
 * Semantic version: `^3.0.0`
 * Features
