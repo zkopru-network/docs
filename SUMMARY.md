@@ -8,6 +8,8 @@
   * [Atomic swap](how-it-works/atomic-swap.md)
   * [Grove: Merkle trees of zkopru](how-it-works/grove.md)
   * [Block structure & serailzation](how-it-works/block.md)
+  * [Mass deposit](how-it-works/mass-deposit.md)
+  * [Merged leaves](how-it-works/merged-leaves.md)
   * [Contract](how-it-works/contract/README.md)
     * [Layer2.sol](how-it-works/contract/layer2.sol.md)
     * [Coordinatable.sol](how-it-works/contract/coordinatable.sol.md)
