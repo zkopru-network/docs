@@ -22,7 +22,7 @@ Support challenges
 * Semantic version: `^2.0.0`
 * Features
   * Challenge support
-  * Soft-launching on mainnet(at your own risk)
+  * Soft-launching on mainnet\(at your own risk\)
 
 ## [Grilled burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/4)
 
@@ -49,7 +49,8 @@ Upgrade layer 2 features from Buritto
 ## [Dragon roll \(mainnet\)](https://github.com/wanseob/zkopru/projects/6)
 
 Decentralized coordinator
- 
+
 * Semantic version: `^4.0.0`
 * Features
   * TBD
+
