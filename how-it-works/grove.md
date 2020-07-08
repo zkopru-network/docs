@@ -20,6 +20,10 @@ Afterwards, by the commitment-nullifier scheme, the nullifier of the spent UTXOs
 | How to update | append only with sub-tree rollup with 5 depth tree | SMT roll-up | append only with sub-tree rollup with 5 depth tree |
 | Cost \(gas/leaf\) | 180k | 351k | 5.2k |
 
+{% hint style="warning" %}
+UTXO tree & withdrawal tree will have 64 depth in Burrito version. [https://github.com/wanseob/zkopru/issues/35](https://github.com/wanseob/zkopru/issues/35)
+{% endhint %}
+
 ## How to manage the UTXO Trees
 
 A single UTXO tree is a sparse merkle tree for the membership proof. It uses Poseidon hash, one of the cheapest hash function inside the SNARK, to generate a zk SNARK proof to hide the spending hash and its path.
