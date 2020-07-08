@@ -14,6 +14,23 @@ UTXOs include the following properties.
 And then Zkopru computes the leaf hash with Poseidon hash:
 
 ```javascript
-var utxo_hash = poseidon(zk_pub_key, salt, ether, token_address, erc20, nft)
+var zk_pubkey = poseidon(3, 6, 8, 57)(
+    babyjubjub_pubkey.x,
+    babyjubjub_pubkey.y,
+    nullifier_seed,
+)
+var asset_hash = poseidon(4, 6, 8, 57)(
+    ether,
+    token_address,
+    erc20,
+    nft,
+)
+var utxo_hash = poseidon(3, 6, 8, 57)(
+    zk_pub_key,
+    asset_hash,
+    salt,
+)
 ```
+
+
 
