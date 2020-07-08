@@ -14,7 +14,7 @@ MassDeposit is a single `mergedLeaves` bytes32 value to be used for roll up proo
 
 ### **How does the coordinator handle MassDeposits?**
 
-Coordinators can include only the "committed" MassDeposits that do not change. And to include a MassDeposit, the coordinator monitors the `Deposit` event. ZkOPRU contract emits `Deposit` event to let the coordinators know that a new deposit is merged into the n-th items of the `MassDeposits[]`.
+Coordinators can include only the "committed" MassDeposits that do not change anymore. And to include a MassDeposit, the coordinator monitors the `Deposit` event from the ZkOPRU contract.
 
 ### **When does a MassDeposit becomes "committed"**
 

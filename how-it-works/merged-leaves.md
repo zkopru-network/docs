@@ -1,14 +1,12 @@
 ---
 description: >-
-  Merged leaves is a simple techinique for Merkle tree rollup proof of massive
-  items.
+  Merged leaves is used for item append sequence validation for the merkle tree
+  rollup of massive items.
 ---
 
-# Merged leaves
+# Merged leaves & optimistic rollup
 
-### Mission
-
-Let's assume that what we're going to prove is the following merkle tree appending
+Merged leaves concept is used for the sequence verification of the appended items when we want to prove merkle tree updates through multiple transactions. Let's assume that what exactly we're going to prove is the following result.
 
 ```text
 [Original merkle tree]
@@ -21,18 +19,20 @@ Let's assume that what we're going to prove is the following merkle tree appendi
     - Index: m + n
 ```
 
-### Problem
-
-If we use a custom hash function to construct a merkle tree, it usually becomes very expensive in the EVM. we need to hash TREE\_DEPTH times and it becomes not possible to append lots of items at once.
-
-### Solution
-
-Therefore, we have to split them into number of chunks and use several transactions.
+To prove above, we will run the following steps:
 
 1. To add a massive number of items, we split the transactions and record the intermediate proof result.
 2. To ensure the sequence of the item appending, every item will be merged sequentially into the `mergedLeaves` value.
 
-   In the end, the result stored on the EVM will be
+   ```text
+   mergedLeaves = 0
+   mergedLeaves = hash(mergedLeaves, items[0])
+   mergedLeaves = hash(mergedLeaves, items[1])
+   ...
+   mergedLeaves = hash(mergedLeaves, items[n])
+   ```
+
+3. In the end, the result stored on the EVM will be
 
    ```text
     - start root
@@ -42,9 +42,9 @@ Therefore, we have to split them into number of chunks and use several transacti
     - mergedLeaves
    ```
 
-   Let's see how it works. 
+   And then we can compare the merkle tree update result.
 
-For example,
+Let's see a more detail example.
 
 * `startRoot` is `0x0001234...`
 * `startIndex` is 38
@@ -109,7 +109,7 @@ We're going to add 3 items at once, so after 2 times of transactions, we can hav
     mergedLeaves = 0xDEFEDFED...;
    ```
 
-7. Using the stored proof, we can validate the following information is valid or not. The validation only returns the validity when the result of merging all items in the`itemsToAdd` is same with the `mergedLeaves` of the stored proof result.
+7. Using the stored proof, we can validate the following information is valid or not. To validate the information, it computes the `mergedLeaves` result of the `itemsToAdd` and compare it with the stored `mergedLeaves`. 
 
    ```text
     startRoot: 0x0001234...,
@@ -119,7 +119,7 @@ We're going to add 3 items at once, so after 2 times of transactions, we can hav
     resultIndex: 47
    ```
 
-    Here, we merge all items of the `itemsToAdd` with the following code.
+    Here is how it computes the `mergedLeaves` of `itemsToAdd`
 
    ```text
     merged = bytes32(0);
@@ -128,12 +128,7 @@ We're going to add 3 items at once, so after 2 times of transactions, we can hav
     }
    ```
 
-    Finally the `merged` value equals to the `mergedLeaves` value `0xDEFEDFED...` of the stored proof, it returns `true`, or will be reverted.
+   Finally, if the result `merged` value equals to the `mergedLeaves` value `0xDEFEDFED...` of the stored proof, it returns `true`, or will be reverted.
 
-### Conclusion
-
-1. Using this system, we can create a proof for the merkle tree roll up using multiple transactions.
-2. It uses `keccak256` to check the exact sequence of the item appending.
-
-[See the detail implementation](https://github.com/wilsonbeam/merkle-tree-rollup/blob/bc14f76f509c1d66e18686ad3f6bf3ed90b7f16f/contracts/library/OPRULib.sol#L40)
+[See the detail implementation](https://github.com/wanseob/zkopru/blob/034ad7b41eca2a9fc0d344a5b5a8a4525e904c96/packages/contracts/contracts/libraries/Tree.sol#L155)
 
