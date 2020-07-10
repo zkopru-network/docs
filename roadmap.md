@@ -22,6 +22,7 @@ Support challenges
 * Semantic version: `^2.0.0`
 * Features
   * Challenge support
+  * Updated nullifier model
   * Soft-launching on mainnet\(at your own risk\)
 
 ## [Grilled burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/4)

@@ -7,6 +7,7 @@
   * [Block structure & serailzation](how-it-works/block.md)
   * [Account](how-it-works/account.md)
   * [UTXO](how-it-works/utxo.md)
+  * [Encrypted memo field](how-it-works/encrypted-memo-field.md)
   * [Atomic swap](how-it-works/atomic-swap.md)
   * [Grove: Merkle trees of zkopru](how-it-works/grove.md)
   * [Merged leaves & optimistic rollup](how-it-works/merged-leaves.md)
