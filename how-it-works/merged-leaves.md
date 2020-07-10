@@ -6,7 +6,7 @@ description: >-
 
 # Merged leaves & optimistic rollup
 
-Merged leaves concept is used for the sequence verification of the appended items when we want to prove merkle tree updates through multiple transactions. Let's assume that what exactly we're going to prove is the following result.
+Merged leaves concept is used for the sequence verification of the appended items when we want to prove Merkle tree updates through multiple transactions. Let us assume that what exactly we are going to prove is the following result.
 
 ```text
 [Original merkle tree]
@@ -22,7 +22,7 @@ Merged leaves concept is used for the sequence verification of the appended item
 To prove above, we will run the following steps:
 
 1. To add a massive number of items, we split the transactions and record the intermediate proof result.
-2. To ensure the sequence of the item appending, every item will be merged sequentially into the `mergedLeaves` value.
+2. Every item will be merged sequentially into the `mergedLeaves` value to ensure the sequence of the item appending.
 
    ```text
    mergedLeaves = 0
@@ -42,16 +42,16 @@ To prove above, we will run the following steps:
     - mergedLeaves
    ```
 
-   And then we can compare the merkle tree update result.
+   And then we can compare the Merkle tree update result.
 
-Let's see a more detail example.
+Let us see a more detailed example.
 
 * `startRoot` is `0x0001234...`
 * `startIndex` is 38
 * `itemsToAdd` is `[0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09]`
 * we are now trying to prove `resultRoot` is `0xabcd1234...` when after adding all items in the `itemsToAdd` list.
 
-We're going to add 3 items at once, so after 2 times of transactions, we can have a proof for the merkle tree transition on EVM. Note that I've used random values for the hash calculation for this example.
+We're going to add three items at once, so after two times of transactions, we can have a proof for the Merkle tree transition on EVM. Note that we have used random values for the hash calculation for this example.
 
 1. Start
 
@@ -98,7 +98,7 @@ We're going to add 3 items at once, so after 2 times of transactions, we can hav
    ```
 
 5. To add the fourth item, we will retrive the result from the storage and keep going to append items.
-6. As a result we now have the result on Ethereum storage which proves the valid merkle tree transition by the EVM calculation.
+6. As a result, we now have the result on Ethereum storage, proving the valid Merkle tree transition by the EVM calculation.
 
    ```text
     [stored proof on the EVM]
@@ -109,7 +109,7 @@ We're going to add 3 items at once, so after 2 times of transactions, we can hav
     mergedLeaves = 0xDEFEDFED...;
    ```
 
-7. Using the stored proof, we can validate the following information is valid or not. To validate the information, it computes the `mergedLeaves` result of the `itemsToAdd` and compare it with the stored `mergedLeaves`. 
+7. Using the stored proof, we can validate the following information is valid or not. To validate the information, it computes the `mergedLeaves` result of the `itemsToAdd` and compares it with the stored `mergedLeaves`. 
 
    ```text
     startRoot: 0x0001234...,
@@ -128,7 +128,7 @@ We're going to add 3 items at once, so after 2 times of transactions, we can hav
     }
    ```
 
-   Finally, if the result `merged` value equals to the `mergedLeaves` value `0xDEFEDFED...` of the stored proof, it returns `true`, or will be reverted.
+   Finally, if the result `merged` value equals to the `mergedLeaves` value `0xDEFEDFED...` of the stored proof, it returns `true` or will be reverted.
 
 [See the detail implementation](https://github.com/wanseob/zkopru/blob/034ad7b41eca2a9fc0d344a5b5a8a4525e904c96/packages/contracts/contracts/libraries/Tree.sol#L155)
 

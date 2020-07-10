@@ -1,7 +1,13 @@
 # Table of contents
 
 * [What is zkopru?](README.md)
-* [Getting started](getting-started.md)
+* [Getting started](getting-started/README.md)
+  * [Install CLI](getting-started/install-cli.md)
+  * [Deposit](getting-started/deposit.md)
+  * [Transfer](getting-started/transfer.md)
+  * [Withdraw](getting-started/withdraw.md)
+  * [\[WIP\] Atomic swap](getting-started/wip-atomic-swap.md)
+  * [\[WIP\] Migration](getting-started/wip-migration.md)
 * [How it works](how-it-works/README.md)
   * [Transaction](how-it-works/transaction.md)
   * [Block structure & serailzation](how-it-works/block.md)

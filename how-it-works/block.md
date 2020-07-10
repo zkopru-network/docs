@@ -12,7 +12,7 @@ The zkopru block includes a header and a body.
 
 ### Header
 
-The first 372 byte of the data should be the block header. The block header contains the following data:
+The first 372 bytes of the data should be the block header. The block header contains the following data:
 
 | Property | type |
 | :--- | :--- |
@@ -20,8 +20,8 @@ The first 372 byte of the data should be the block header. The block header cont
 | Parent block hash | bytes32 |
 | Metadata | uint256 |
 | Fee | uint256 |
-| Latest utxo tree's root | uint256 |
-| Latest utxo tree's leaf index | uint256 |
+| Latest UTXO tree's root | uint256 |
+| Latest UTXO tree's leaf index | uint256 |
 | Nullifier tree's root | bytes32 |
 | Latest withdrawal tree's root | uint256 |
 | Latest withdrawal tree's leaf index | uint256 |
@@ -31,7 +31,7 @@ The first 372 byte of the data should be the block header. The block header cont
 
 ### Body
 
-A block body consists of transactions, mass deposits and mass migrations. And the block header should contain correct information from the body. If the header does not have a correct value, the proposer will be slashed through challenge system.
+A block body consists of transactions, mass deposits, and mass migrations. Moreover, the block header should contain correct information from the body. If the header does not have the correct value, the proposer will get slashed through the challenge system.
 
 #### Transactions
 
