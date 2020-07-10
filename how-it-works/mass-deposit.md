@@ -8,19 +8,19 @@
 
 ### **What is MassDeposit?**
 
-MassDeposit is a single `mergedLeaves` bytes32 value to be used for roll up proof. Please check what is `mergedLeaves` for roll up proof [here](https://github.com/wilsonbeam/zk-optimistic-rollup/wiki/Merged-leaves-for-merkle-tree-roll-up-proof). And if a coordinator proposes a block which includes a MassDeposit, it means that the block is appending all of the notes in the MassDeposit to its UTXO merkle tree.
+MassDeposit is a single `mergedLeaves` bytes32 value to be used for rollup proof. Please check what is `mergedLeaves` for rollup proof [here](https://github.com/wilsonbeam/zk-optimistic-rollup/wiki/Merged-leaves-for-merkle-tree-roll-up-proof). If the coordinator proposes a block including MassDeposits, the block appends all notes in the MassDeposit to its UTXO Merkle tree.
 
 {% page-ref page="merged-leaves.md" %}
 
 ### **How does the coordinator handle MassDeposits?**
 
-Coordinators can include only the "committed" MassDeposits that do not change anymore. And to include a MassDeposit, the coordinator monitors the `Deposit` event from the ZkOPRU contract.
+Coordinators can include only the "committed" MassDeposits that do not change anymore. To include a MassDeposit, the coordinator monitors the `Deposit` event from the Zkopru contract.
 
-### **When does a MassDeposit becomes "committed"**
+### **When does a MassDeposit become "committed"?**
 
-It is important to push the deposits to the layer-2 as quickly as possible. Therefore, it freezes the latest MassDeposit when every new block is proposed by the coordinators.
+It is important to push the deposits to the layer-2 as quickly as possible. Therefore, it freezes the latest MassDeposit when the coordinators propose every new block.
 
-### **Does the coordinator can include more than one MassDeposit?**
+### **Can the coordinator include more than one MassDeposit?**
 
-Yes, it is possible to include a number of MassDeposits at once in the range of maximum challengeable cost.
+Yes, it is possible to include several MassDeposits at once in the range of maximum challengeable cost.
 
