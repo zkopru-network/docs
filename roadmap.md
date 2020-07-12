@@ -17,7 +17,7 @@ The first working testnet of zkopru.
 
 ## [Burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/2)
 
-Support challenges
+Support challenges.
 
 * Semantic version: `^2.0.0`
 * Features
@@ -27,7 +27,7 @@ Support challenges
 
 ## [Grilled burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/4)
 
-Upgrade layer 2 features from Buritto
+Upgrade layer 2 features from Buritto.
 
 * Semantic version: `^2.0.0`
 * Feature
@@ -39,6 +39,8 @@ Upgrade layer 2 features from Buritto
 
 ## [California roll \(mainnet\)](https://github.com/wanseob/zkopru/projects/5)
 
+Audited mainnet version.
+
 * Semantic version: `^3.0.0`
 * Features
   * Audit
@@ -49,7 +51,7 @@ Upgrade layer 2 features from Buritto
 
 ## [Dragon roll \(mainnet\)](https://github.com/wanseob/zkopru/projects/6)
 
-Decentralized coordinator
+Decentralized coordinator.
 
 * Semantic version: `^4.0.0`
 * Features
