@@ -8,7 +8,7 @@
 
 ### **What is MassDeposit?**
 
-MassDeposit is a single `mergedLeaves` bytes32 value to be used for rollup proof. Please check what is `mergedLeaves` for rollup proof [here](https://github.com/wilsonbeam/zk-optimistic-rollup/wiki/Merged-leaves-for-merkle-tree-roll-up-proof). If the coordinator proposes a block including MassDeposits, the block appends all notes in the MassDeposit to its UTXO Merkle tree.
+MassDeposit is a single `mergedLeaves` bytes32 value to be used for rollup proof. Please check what is `mergedLeaves` for rollup proof [here](/how-it-works/merged-leaves.md). If the coordinator proposes a block including MassDeposits, the block appends all notes in the MassDeposit to its UTXO Merkle tree.
 
 {% page-ref page="merged-leaves.md" %}
 
