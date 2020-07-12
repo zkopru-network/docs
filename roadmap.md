@@ -2,7 +2,7 @@
 
 [List of rolled foods](https://en.wikipedia.org/wiki/List_of_rolled_foods)
 
-## [Arctic roll \(testnet\)](https://github.com/wanseob/zkopru/projects/1)
+## [Arctic roll \(testnet\)](https://github.com/zkopru-network/zkopru/projects/1)
 
 The first working testnet of zkopru.
 
@@ -15,7 +15,7 @@ The first working testnet of zkopru.
   * Private transfer
   * Withdrawal
 
-## [Burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/2)
+## [Burrito \(testnet + mainnet\)](https://github.com/zkopru-network/zkopru/projects/2)
 
 Support challenges.
 
@@ -25,7 +25,7 @@ Support challenges.
   * Updated nullifier model
   * Soft-launching on mainnet\(at your own risk\)
 
-## [Grilled burrito \(testnet + mainnet\)](https://github.com/wanseob/zkopru/projects/4)
+## [Grilled burrito \(testnet + mainnet\)](https://github.com/zkopru-network/zkopru/projects/4)
 
 Upgrade layer 2 features from Buritto.
 
@@ -37,7 +37,7 @@ Upgrade layer 2 features from Buritto.
   * Instant withdrawal
   * Simulator & benchmark
 
-## [California roll \(mainnet\)](https://github.com/wanseob/zkopru/projects/5)
+## [California roll \(mainnet\)](https://github.com/zkopru-network/zkopru/projects/5)
 
 Audited mainnet version.
 
@@ -49,7 +49,7 @@ Audited mainnet version.
   * Mobile wallet support
   * Coordinator dashboard
 
-## [Dragon roll \(mainnet\)](https://github.com/wanseob/zkopru/projects/6)
+## [Dragon roll \(mainnet\)](https://github.com/zkopru-network/zkopru/projects/6)
 
 Decentralized coordinator.
 

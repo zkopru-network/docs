@@ -6,5 +6,5 @@ To request the instant withdrawal, the owner generates an ECDSA signature for he
 
 #### References
 
-{% embed url="https://github.com/wanseob/zkopru/issues/33" %}
+{% embed url="https://github.com/zkopru-network/zkopru/issues/33" %}
 

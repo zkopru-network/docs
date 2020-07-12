@@ -21,7 +21,7 @@ Afterward, by the commitment-nullifier scheme, the nullifier of the spent UTXOs 
 | Cost \(gas/leaf\) | 180k | 351k | 5.2k |
 
 {% hint style="warning" %}
-UTXO tree & withdrawal tree will have 64 depth in the Burrito version. [https://github.com/wanseob/zkopru/issues/35](https://github.com/wanseob/zkopru/issues/35)
+UTXO tree & withdrawal tree will have 64 depth in the Burrito version. [https://github.com/zkopru-network/zkopru/issues/35](https://github.com/zkopru-network/zkopru/issues/35)
 {% endhint %}
 
 ## How to manage the UTXO Trees
@@ -46,7 +46,7 @@ To update the nullifier tree, the coordinator performs the following steps.
 2. Check there does not exist any already used nullifiers.
 3. Mark every nullifier as used. During the update process, if any of the nullifiers does not change the nullifier tree root, discard the transaction because it tries a double-spending.
 
-Just like the UTXO tree, Zkopru optimistically updates the nullifier tree's root. If there is any problem, we can prove a nullifier used more than twice by generating a fraud-proof on-chain. To see how it works, please see [RollUpChallenge.sol](https://github.com/wanseob/zkopru/blob/master/packages/contracts/contracts/controllers/challenges/RollUpChallenge.sol) and [SMT.sol](https://github.com/wanseob/zkopru/blob/master/packages/contracts/contracts/libraries/SMT.sol).
+Just like the UTXO tree, Zkopru optimistically updates the nullifier tree's root. If there is any problem, we can prove a nullifier used more than twice by generating a fraud-proof on-chain. To see how it works, please see [RollUpChallenge.sol](https://github.com/zkopru-network/zkopru/blob/master/packages/contracts/contracts/controllers/challenges/RollUpChallenge.sol) and [SMT.sol](https://github.com/zkopru-network/zkopru/blob/master/packages/contracts/contracts/libraries/SMT.sol).
 
 ## Withdrawal Tree
 

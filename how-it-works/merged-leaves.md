@@ -130,5 +130,5 @@ We're going to add three items at once, so after two times of transactions, we c
 
    Finally, if the result `merged` value equals to the `mergedLeaves` value `0xDEFEDFED...` of the stored proof, it returns `true` or will be reverted.
 
-[See the detail implementation](https://github.com/wanseob/zkopru/blob/034ad7b41eca2a9fc0d344a5b5a8a4525e904c96/packages/contracts/contracts/libraries/Tree.sol#L155)
+[See the detail implementation](https://github.com/zkopru-network/zkopru/blob/034ad7b41eca2a9fc0d344a5b5a8a4525e904c96/packages/contracts/contracts/libraries/Tree.sol#L155)
 
