@@ -83,5 +83,7 @@ If you save the configuration, you can run the wallet using the config file with
 $ zkopru-wallet --config wallet.json
 ```
 
-### 
+After then, you'll see this login screen for your wallet from next time.
+
+![](../.gitbook/assets/image%20%284%29.png)
 

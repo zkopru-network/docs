@@ -2,7 +2,7 @@
 
 Please select an account to use. Then it will print the account's detailed information on the infobox.
 
-![](https://i.imgur.com/RcDK7wK.png)
+![](../.gitbook/assets/image%20%282%29.png)
 
 In this example, the account has 100 ETH on the layer-1, and we will move this to the layer-2 using deposit menu.
 

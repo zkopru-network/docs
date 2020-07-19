@@ -2,7 +2,7 @@
 
 Once your deposit is included in the block, you can now use the private transfer feature.
 
-![](https://i.imgur.com/R5hIKUM.png)
+![](../.gitbook/assets/image%20%281%29.png)
 
 To send your ETH, ERC20, or ERC721, you need to get the recipient's Babyjubjub public key. The Babyjubjub public key is derived from the corresponding Ethereum account's private key.
 

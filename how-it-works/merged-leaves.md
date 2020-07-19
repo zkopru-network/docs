@@ -109,7 +109,7 @@ We're going to add three items at once, so after two times of transactions, we c
     mergedLeaves = 0xDEFEDFED...;
    ```
 
-7. Using the stored proof, we can validate the following information is valid or not. To validate the information, it computes the `mergedLeaves` result of the `itemsToAdd` and compares it with the stored `mergedLeaves`. 
+7. Using the stored proof, we can validate the following information is valid or not. To validate the information, it computes the `mergedLeaves` result of the `itemsToAdd` and compares it with the stored `mergedLeaves`.
 
    ```text
     startRoot: 0x0001234...,
@@ -119,7 +119,7 @@ We're going to add three items at once, so after two times of transactions, we c
     resultIndex: 47
    ```
 
-    Here is how it computes the `mergedLeaves` of `itemsToAdd`
+   Here is how it computes the `mergedLeaves` of `itemsToAdd`
 
    ```text
     merged = bytes32(0);

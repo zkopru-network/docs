@@ -15,9 +15,11 @@ However, the system supports instant withdrawal using the pay-in-advance feature
 7. Go to the 'withdraw out' menu.
 8. Select a finalized withdrawal from the list.
 
-![](https://i.imgur.com/9jt6OmS.png)
+![Withdrawl request menu](../.gitbook/assets/image%20%283%29.png)
+
+![Withdraw out menu](../.gitbook/assets/image.png)
 
 #### Instant withdrawal
 
-\[WIP\]
+WIP
 

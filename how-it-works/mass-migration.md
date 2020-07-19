@@ -11,5 +11,6 @@ In Zkopru, for the migration, there are source network and destination network. 
 Therefore, the destination network should implement [`acceptMigration` function](https://github.com/zkopru-network/zkopru/blob/034ad7b41eca2a9fc0d344a5b5a8a4525e904c96/packages/contracts/contracts/controllers/Migratable.sol#L52). Also, it is recommended to allow migrations only from trusted networks.
 
 {% hint style="info" %}
-The migration standard between rollups is going to be standardized through EIP. 
+The migration standard between rollups is going to be standardized through EIP.
 {% endhint %}
+
