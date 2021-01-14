@@ -1,6 +1,6 @@
 # Burn Auction
 
-Zkopru uses a burn auction to determine who is allowed to propose blocks in the network. Coordinators must burn their Ether in exchange for the right to collect fees from proposed blocks. This Ether is collected by Zkopru with the intent of spending on public good services.
+Zkopru uses a burn auction to determine who is allowed to propose blocks in the network. Coordinators must spend their Ether in exchange for the right to propose blocks and collect fees. Auction Ether is collected by Zkopru with the intent of spending on public good services.
 
 ### Rounds
 
