@@ -1,20 +1,18 @@
 # UTXO
 
-UTXOs include the following properties.
+UTXO's hash is computed by concatenating Zkopru account's public spending key, a salt, and data hash.
 
-| Property | Description |
-| :--- | :--- |
-| Ether | The amount of ETH |
-| Public Key | A Babyjubjub point of the note owner |
-| Salt | Random salt. Zkopru generates UTXO hash using this salt. |
-| Token Address \(Optional\) | The address of the token contract when it includes ERC20 or ERC721. The default value is 0. |
-| ERC20 Amount \(Optional\) | The amount of the ERC20 token when it includes ERC20. The default value is 0. |
-| NFT Id \(Optional\) | The id of the ERC721 token when it includes ERC721. The default value is 0. |
+* Zkopru account's public spending key `S` is defined in [account](account.md) part.
+* Salt is a 16 bytes(128 bit) number to add some randomness.
+* Data hash is a poseidon hash of Ether amount, token address (default is 0), NFT id if the note contains NFT, and the oken amount if it contains ERC20.
 
-And then Zkopru computes the leaf hash with Poseidon hash:
+Zkopru protocol supports combination types of notes such as Ether and ERC20 or Ether and NFT. But, we recommend to use Ether only note, NFT only note, or ERC20 only note since the encrypted memo field does not support the combination types.
 
 ```javascript
-var intermediate_hash = poseidon(ether, pub_key.x, pub_key.y, salt)
-var result_hash = poseidon(intemediate_hash, token_address, erc20, nft)
+const S = poseidon(p*G, n) // public spending key. See how-it-works/account
+const salt = random16BytesSalt() // salt
+const asset = poseidon(eth, tokenAddr, erc20, nft) // asset hash
+const utxoHash = poseidon(S, salt, asset)
 ```
 
+Please note that the erc20 field and the nft field cannot have both non-zero value at the same time.
