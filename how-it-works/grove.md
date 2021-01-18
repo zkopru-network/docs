@@ -1,38 +1,34 @@
-# Grove: Merkle trees of zkopru
+# Merkle trees of zkopru
 
-Zkopru's grove consists of UTXO trees, nullifier tree, and withdrawal trees.
+Zkopru's Merkle trees consists of UTXO tree, nullifier tree, and withdrawal tree.
 
-UTXO trees are append-only usage Merkle trees containing UTXOs. Users can spend the UTXOs as the inflow of the transaction by submitting the inclusion Merkle proof. And the output results of transactions are appended back into the latest UTXO tree.
+UTXO tree is an append-only usage Merkle tree containing UTXOs. Users can spend the UTXOs as the inflow of the transaction by submitting the inclusion Merkle proof. And the output results of transactions are appended back into the tree.
 
-Also, if the zk-transaction creates withdrawal outputs, Zkopru appends them into the latest withdrawal tree. Once the tree's root is marked as finalized, the owner can withdraw assets by proving the ownership.
+Also, if the zk-transaction creates withdrawal outputs, Zkopru appends them into the withdrawal tree. Once the tree's root is marked as finalized, the owner can withdraw assets by proving the inclusion and the ownership.
 
-Afterward, by the commitment-nullifier scheme, the nullifier of the spent UTXOs are marked as used in the nullifier tree, a unique sparse Merkle tree. If a transaction tries to use an already nullified leaf, it becomes invalidated, and the block proposer gets slashed by the challenge system.
+Afterward, by the commitment-nullifier scheme, the nullifier of the spent UTXOs are marked as used in the nullifier tree, a sparse Merkle tree. If a transaction tries to use an already nullified leaf, it becomes invalidated, and the block proposer gets slashed by the challenge system.
 
-![grove](https://docs.google.com/drawings/d/e/2PACX-1vTXH2aQr0HZmWZbbA2ENOISW5hT5XsG2dda90RBSaQH-2ClqlZvFKlSTppR38b2ixUbqQeMOTztC-LA/pub?w=1031&h=564)
+To make the system SNARK friendly, the UTXO tree and the withdrawal tree have only 48 for their depths. 48 depth lets us build the zk SNARK proof quickly and is enough for using over 100K years.
+
+![Zkopru tree system](https://docs.google.com/drawings/d/e/2PACX-1vQv8RJQ2_CtB81PJPBdKGg7yKhjWQy8rPi--qul_G39yu_Zmfh3OHQ1JD0c6FVxiQgSI5R-FkS7SaMk/pub?w=1031&h=564)
 
 ## Specification of Merkle trees
 
 |  | UTXO Tree | Nullifier Tree | Withdrawal Tree |
 | :--- | :--- | :--- | :--- |
 | Type | Sparse Merkle Tree | Sparse Merkle Tree | Sparse Merkle Tree |
-| Depth | 31 | 256 | 31 |
+| Depth | 48 | 256 | 48 |
 | Hash | Poseidon | Keccak256 | Keccak256 |
 | How to update | append-only with subtree rollup with 5 depth tree | SMT rollup | append-only with subtree rollup with 5 depth tree |
 | Cost \(gas/leaf\) | 180k | 351k | 5.2k |
 
-{% hint style="warning" %}
-UTXO tree & withdrawal tree will have 64 depth in the Burrito version. [https://github.com/zkopru-network/zkopru/issues/35](https://github.com/zkopru-network/zkopru/issues/35)
-{% endhint %}
+## How to manage the UTXO tree
 
-## How to manage the UTXO Trees
+A UTXO tree starts as an empty sparse Merkle tree for the membership proof. It uses Poseidon hash, one of the cheapest hash function inside the SNARK system, to generate a zk proof to hide the spending hash and its path.
 
-A single UTXO tree is a sparse Merkle tree for the membership proof. It uses Poseidon hash, one of the cheapest hash function inside the SNARK, to generate a zk SNARK proof to hide the spending hash and its path.
+To append new leaves to the UTXO tree, the coordinator performs the following steps. 1. Prepare an array. 2. Coordinator picks MassDeposits to include, and append every deposit in the MassDeposits into the array. 3. L2 transactions generate new UTXOs. Append newly generated UTXOs to the array. 4. Split the prepared array with the chunk size 32. 5. Construct sub-trees and perform the sub-tree rollup.
 
-To append new leaves to the UTXO tree, the coordinator performs the following steps. 1. Prepare an array. 2. Coordinator picks MassDeposits to include, and append every deposit in the MassDeposits into the array. 3. L2 transactions generate new UTXOs. Append newly generated UTXOs to the array. 4. Split the prepared array with the chunk size 32. 5. Construct subtrees and perform the sub-tree rollup.
-
-Suppose the UTXO tree is fully filled with \(2^31\) items, the system archive the filled tree and start a new tree. The archived trees are also allowed to be used to reference the inclusion proofs of the transactions.
-
-Zkopru optimistically updates the trees' root and verifies when only there exists a challenge. For the challenge, it generates an on-chain fraud-proof using the subtree rollup methodology. Subtree rollup appends a fixed size of subtrees instead of appending items one by one. When if the subtree's depth is 5, it will append 32 items at once. If it contains only 18 items, the remaining 14 items will have remained forever as zeroes. This subtree rollup dramatically reduces the gas cost about 20 times compared to the rollup. To check the source code, please go to [contracts/controllers/challenges/RollUpChallenge.sol](https://github.com/zkopru-network/zkopru/blob/master/packages/contracts/contracts/controllers/challenges/RollUpChallenge.sol). And to see how the subtree works please go to [packages/contracts/contracts/libraries/Tree.sol](https://github.com/zkopru-network/zkopru/blob/9a2e7fe361bdba7be7241d9f80f9e9afbf8ae76c/packages/contracts/contracts/libraries/Tree.sol#L275)
+Zkopru optimistically updates the trees' root and verifies when only there exists a challenge. For the challenge, it generates an on-chain fraud-proof using the subtree rollup methodology. Subtree rollup appends a fixed size of sub-trees instead of appending items one by one. When if the subtree's depth is 5, it will append 32 items at once. If it contains only 18 items, the remaining 14 items will have remained forever as zeroes. This subtree rollup dramatically reduces the gas cost about 20 times compared to the rollup. To check the source code, please go to [contracts/controllers/challenges/RollUpChallenge.sol](https://github.com/zkopru-network/zkopru/blob/master/packages/contracts/contracts/controllers/challenges/RollUpChallenge.sol). And to see how the subtree works please go to [packages/contracts/contracts/libraries/Tree.sol](https://github.com/zkopru-network/zkopru/blob/9a2e7fe361bdba7be7241d9f80f9e9afbf8ae76c/packages/contracts/contracts/libraries/Tree.sol#L275)
 
 ![subtree-rollup](https://docs.google.com/drawings/d/e/2PACX-1vRoBO2Nl-M8elgz55jzgxuux1f6FbrZIiUCeY3Z9Sf7haKF8kSP548L8pXcdh_VCfT_gcW1gywY4VKY/pub?w=959&h=417)
 
@@ -50,11 +46,10 @@ Just like the UTXO tree, Zkopru optimistically updates the nullifier tree's root
 
 ## Withdrawal Tree
 
-The only difference with the withdrawal tree and UTXO tree is that the withdrawal tree uses keccak256 for the hash function. The reason why it uses keccak256 is that Zkopru needs the withdrawal tree's Merkle proof on the smart contract while it needs UTXO tree's Merkle proof inside the SNARK circuit. The leaves in the withdrawal trees become withdrawable on the layer-1 smart contract after its tree's root becomes finalized.
+The only difference with the withdrawal tree and UTXO tree is that the withdrawal tree uses keccak256 for the hash function. The reason why it uses keccak256 is that Zkopru needs the withdrawal tree's Merkle proof on the smart contract while it needs UTXO tree's Merkle proof inside the SNARK circuit. The leaves in the withdrawal tree become withdrawable on the layer-1 smart contract after its committed root becomes finalized.
 
-To update the withdrawal tree, the coordinator performs the following steps.
+To update the withdrawal tree, the coordinator performs following steps.
 
 1. Collect every withdrawal leaf of the picked transactions.
 2. Split the collected withdrawal array with the chunk size 32.
-3. Construct subtrees and perform the sub-tree rollup.
-
+3. Construct sub-trees and perform the sub-tree rollup.
