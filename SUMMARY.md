@@ -6,6 +6,7 @@
   * [Deposit](getting-started/deposit.md)
   * [Transfer](getting-started/transfer.md)
   * [Withdraw](getting-started/withdraw.md)
+  * [Configure Coordinator](getting-started/configure-coordinator.md)
   * [\[WIP\] Atomic swap](getting-started/wip-atomic-swap.md)
   * [\[WIP\] Migration](getting-started/wip-migration.md)
 * [How it works](how-it-works/README.md)
