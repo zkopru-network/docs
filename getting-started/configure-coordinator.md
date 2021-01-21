@@ -43,7 +43,7 @@ Options:
 ```
 ## Configuration File
 
-All command line flags may be supplied in a json file. This file should be passed in using `--config`. Any cli flags will override config file settings.
+All command line flags may be supplied in a json file. This file should be passed in using `--config`. **Any cli flags will override config file settings.**
 
 ## Generate Config
 
