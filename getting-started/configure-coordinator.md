@@ -49,6 +49,4 @@ All command line flags may be supplied in a json file. This file should be passe
 
 Zkopru includes a config generator that can be run using `zkopru-coordinator --generateConfig`. This will start an interactive process allowing you to select values for a configuration file. This file is a good starting point for further customization.
 
-Example:
-
-<img src="https://user-images.githubusercontent.com/631020/105255745-d0473580-5b49-11eb-8e94-8a31eb04b7b5.png" />
+<img width="500px" height="auto" src="https://user-images.githubusercontent.com/631020/105255745-d0473580-5b49-11eb-8e94-8a31eb04b7b5.png" />
