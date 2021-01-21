@@ -3,6 +3,7 @@
 * [What is zkopru?](README.md)
 * [Getting started](getting-started/README.md)
   * [Install CLI](getting-started/install-cli.md)
+  * [Configure Coordinator](getting-started/configure-coordinator.md)
   * [Deposit](getting-started/deposit.md)
   * [Transfer](getting-started/transfer.md)
   * [Withdraw](getting-started/withdraw.md)
