@@ -2,7 +2,7 @@
 
 A zk transaction accepts several UTXOs as its inflow and creates new UTXOs for its outflow. Therefore, the most important thing is to validate the inflow and outflow.
 
-![zkopru transaction ](https://docs.google.com/drawings/d/e/2PACX-1vRDLDx-gJjKCmmFOXcVFt8suboQtKlUFWEU5y_hkaPYUOXx3iiyO3QJlDnfKw3meglNba3ZazPL55zN/pub?w=1448&h=1377)
+![zkopru transaction ](../.gitbook/assets/zk-transaction.png)
 
 ## Inflow validation
 
