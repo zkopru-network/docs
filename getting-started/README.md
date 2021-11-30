@@ -1,6 +1,6 @@
 # Getting started
 
-{% page-ref page="install-cli.md" %}
+{% page-ref page="coordinator.md" %}
 
 {% page-ref page="deposit.md" %}
 
@@ -11,6 +11,3 @@
 {% page-ref page="wip-atomic-swap.md" %}
 
 {% page-ref page="wip-migration.md" %}
-
-
-
