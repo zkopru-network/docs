@@ -6,6 +6,7 @@
   * [Deposit](getting-started/deposit.md)
   * [Transfer](getting-started/transfer.md)
   * [Withdraw](getting-started/withdraw.md)
+  * [Configure Coordinator](getting-started/configure-coordinator.md)
   * [\[WIP\] Atomic swap](getting-started/wip-atomic-swap.md)
   * [\[WIP\] Migration](getting-started/wip-migration.md)
 * [How it works](how-it-works/README.md)
@@ -23,4 +24,4 @@
   * [Mass migration](how-it-works/mass-migration.md)
   * [Instant withdrawal](how-it-works/instant-withdrawal.md)
 * [Roadmap](roadmap.md)
-
+* [RPC API](rpc-api.md)
