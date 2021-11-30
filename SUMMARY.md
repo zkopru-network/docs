@@ -2,11 +2,10 @@
 
 * [What is zkopru?](README.md)
 * [Getting started](getting-started/README.md)
-  * [Install CLI](getting-started/install-cli.md)
+  * [Coordinator Setup](getting-started/coordinator.md)
   * [Deposit](getting-started/deposit.md)
   * [Transfer](getting-started/transfer.md)
   * [Withdraw](getting-started/withdraw.md)
-  * [Configure Coordinator](getting-started/configure-coordinator.md)
   * [\[WIP\] Atomic swap](getting-started/wip-atomic-swap.md)
   * [\[WIP\] Migration](getting-started/wip-migration.md)
 * [How it works](how-it-works/README.md)
@@ -23,4 +22,3 @@
   * [Mass migration](how-it-works/mass-migration.md)
   * [Instant withdrawal](how-it-works/instant-withdrawal.md)
 * [Roadmap](roadmap.md)
-
