@@ -2,9 +2,9 @@
 
 Zkopru nodes offer an RPC API for accessing information about the L2 network and the underlying L1 network. The RPC format is similar to that of Ethereum. One major difference is not all numbers are hexadecimal. Any numbers without a 0x prefix should be assumed to be decimal.
 
-Zkopru nodes will proxy web3 requests to the underlying web3 node. For example, `eth_blockNumber` will return a valid response.
+Zkopru nodes will proxy web3 requests to the underlying Ethereum node. For example, `eth_blockNumber` will return a valid response. Zkopru node URLs can be used as web3 providers.
 
-An testnet API can be accessed at `https://zkopru.goerli.rollupscan.io/`
+A testnet API can be accessed at `https://node.zkopru.network/`
 
 ## Transports
 
